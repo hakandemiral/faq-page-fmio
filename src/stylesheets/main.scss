@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import './_variables';
+@import './_reset';
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(-180deg, $soft-violet, $soft-blue);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.faq-component {
+  width: 920px;
+  height: 510px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0, .4);
+  display: flex;
+  justify-content: flex-start;
+  background: #fff;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -90px;
+    top: 220px;
+    z-index: 99;
+    width: 191px;
+    height: 184px;
+    background: url("../assets/images/illustration-box-desktop.svg");
+  }
+
+  .img-area {
+    user-select: none;
+    pointer-events: none;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      position: absolute;
+    }
+
+    #pattern {
+      left: -570px;
+      top: -275px;
+    }
+
+    #woman {
+      top: 80px;
+      left: -78px;
+    }
+  }
+
+  .list-container {
+    width: 440px;
+    padding-top: 75px;
+
+    .faq-list {
+      width: 350px;
+      height: 100%;
+
+      h1 {
+        margin-bottom: 40px;
+        color: $very-dark-desaturated-blue;
+      }
+
+      ul {
+        li {
+          border-bottom: 1px solid $light-grayish-blue;
+          padding: 20px 0;
+
+          input[type="checkbox"] {
+            display: none;
+
+            &:checked {
+              ~label h2 {
+                font-weight: 700;
+                color: $very-dark-desaturated-blue;
+
+                &::after {
+                  transform: translateY(-50%) rotate(180deg);
+                }
+              }
+
+              ~p {
+                height: auto;
+                opacity: 1;
+                visibility: visible;
+                margin-top: 15px;
+              }
+            }
+          }
+
+          h2 {
+            user-select: none;
+            font-weight: 400;
+            color: $very-dark-grayish-blue;
+            font-size: 1.1em;
+            cursor: pointer;
+            position: relative;
+            transition: 250ms all;
+
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 10px;
+              height: 7px;
+              background: url("../assets/images/icon-arrow-down.svg") no-repeat center;
+              transition: 250ms transform;
+            }
+          }
+
+          p {
+            height: 0;
+            opacity: 0;
+            color: $dark-grayish-blue;
+            transition: 250ms all;
+          }
+        }
+      }
+    }
+  }
+}
